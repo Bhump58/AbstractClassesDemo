@@ -16,25 +16,51 @@ namespace ConsoleUI
 
             #region Vehicles
 
-            /*
-             * Create an abstract class called Vehicle
-             * The vehicle class shall have three string properties Year, Make, and Model
-             * Set the defaults to something generic in the Vehicle class
-             * Vehicle shall have an abstract method called DriveAbstract with no implementation
-             * Vehicle shall have a virtual method called DriveVirtual with a base implementation.
-             */
+            var vehicles = new List<Vehicle>();
 
-            /* 
-             * Now create 2 non-abstract classes: Car and Motorcycle, that inherit from Vehicle
-             * Add a distict property in the 2 derived classes such as HasTrunk for Car and HasSideCart for Motorcycle
-             * Provide the implementations for the abstract methods
-             * Only in the Motorcycle class will you override the virtual drive method
-            */
+            var myCar = new Car();
+
+            var myMotorcycle = new Motorcycle();
+
+            Vehicle newCar = new Car();
+
+            Vehicle newMoto = new Motorcycle();
+
+            myCar.HasFourWheels = true;
+            myCar.HasTrunk = true;
+
+            myMotorcycle.HasSideCar = false;
+            myMotorcycle.IsACruiser = true;
+
+            newCar.Make = "Ford";
+            newCar.Model = "Mustang";
+            newCar.Year = 2012;
+
+            newMoto.DriveAbstract();
+
+
+            vehicles.Add(myCar);
+            vehicles.Add(myMotorcycle);
+            vehicles.Add(newCar);
+            vehicles.Add(newMoto);
+
+            foreach(var vehicle in vehicles)
+            {
+                Console.WriteLine(vehicle.Make);
+                Console.WriteLine(vehicle.Model);
+                Console.WriteLine(vehicle.Year);
+                vehicle.DriveAbstract();
+                vehicle.DriveVirtual();
+                Console.WriteLine(" ");
+                Console.WriteLine(" ");
+                Console.WriteLine("********************");
+            }
 
             // Create a list of Vehicle called vehicles
 
             /*
-             * Create 4 instances: 1 Car, 1 Motorcycle, and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes
+             * Create 4 instances: 1 Car, 1 Motorcycle, 
+             * and then 2 instances of type Vehicle (use explicit typing) but use constuctors from derived classes -Done
              * - new it up as one of each derived class
              * Set the properties with object initializer syntax
              */
